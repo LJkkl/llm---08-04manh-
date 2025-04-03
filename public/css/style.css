@@ -1,0 +1,247 @@
+/* Configuração Geral */
+body {
+    background-color: #F4F4F9; /* Cor de fundo suave e clara */
+    color: #2C3E50; /* Cor de texto escura para contraste */
+    font-family: 'Poppins', sans-serif; /* Fonte 'Poppins' */
+    padding: 0;
+    margin: 0;
+}
+
+/* Cabeçalhos */
+h1 {
+    text-align: center; /* Centraliza o título */
+    color: #2980B9; /* Azul claro e profissional */
+    text-transform: uppercase; /* Maiúsculas */
+    letter-spacing: 2px; /* Aumenta o espaçamento */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/* Cabeçalho e Menu */
+header {
+    background-color: #3498DB;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFF;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+nav {
+    background-color: #FFF;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    font-size: 1.1rem;
+    color: #3498DB;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+nav a:hover {
+    background-color: #2980B9;
+    color: #FFF;
+    transform: scale(1.05);
+}
+
+/* Container Principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Botões */
+button, .add-button a {
+    display: inline-flex;
+    align-items: center;
+    background-color: #3498DB;
+    border-radius: 5px;
+    padding: 12px 20px;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover, .add-button a:hover {
+    background-color: #2980B9;
+    transform: scale(1.05);
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 40px;
+    border-collapse: collapse;
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #BDC3C7;
+    text-align: left;
+}
+
+th {
+    background-color: #3498DB;
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td {
+    color: #34495E;
+}
+
+td a {
+    background-color: #E67E22;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #FFF;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+td a:hover {
+    background-color: #D35400;
+    transform: scale(1.05);
+}
+
+tr:nth-child(even) {
+    background-color: #F2F3F4;
+}
+
+tr:hover {
+    background-color: #ECF0F1;
+    cursor: pointer;
+}
+
+/* Formulário */
+form {
+    background-color: #FFF;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: 40px auto;
+    transition: transform 0.2s;
+}
+
+form:hover {
+    transform: scale(1.02);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #3498DB;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #BDC3C7;
+    border-radius: 5px;
+    background-color: #ECF0F1;
+    font-size: 16px;
+    color: #34495E;
+    transition: background-color 0.3s;
+}
+
+input:focus {
+    background-color: #FFF;
+    outline: 1px solid #3498DB;
+}
+
+/* Botão de Submit */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #3498DB;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #2980B9;
+    transform: scale(1.05);
+}
+
+/* Estilo para o Select */
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #BDC3C7;
+    border-radius: 5px;
+    background-color: #ECF0F1;
+    font-size: 16px;
+    color: #34495E;
+    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+    appearance: none; /* Remove a aparência padrão */
+}
+
+/* Estiliza o select quando está focado */
+select:focus {
+    background-color: #FFF;
+    outline: 1px solid #3498DB;
+}
+
+/* Para adicionar um ícone de dropdown */
+.select-container {
+    position: relative;
+    width: 100%;
+}
+
+.select-container::after {
+    content: "\f078"; /* Ícone de seta do Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #3498DB;
+    pointer-events: none;
+}
+
+/* Melhorando a experiência ao passar o mouse */
+select:hover {
+    background-color: #D5DBDB;
+}
