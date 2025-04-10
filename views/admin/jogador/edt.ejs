@@ -19,19 +19,12 @@
             <input min="1" max ="99" type="number" id="camisa" name="camisa" value="<%= Jogador.camisa %>" required placeholder="Número da camisa"> 
 
             <label for="time"><i class="fas fa-landmark"></i> Time:</label>
-            <select id="time" name="time" required>
-                <option value="">Selecione um time</option>
-                <option value="Flamengo">Flamengo</option>
-                <option value="Palmeiras">Palmeiras</option>
-                <option value="São Paulo">São Paulo</option>
-                <option value="Atlético Mineiro">Atlético Mineiro</option>
-                <option value="Corinthians">Corinthians</option>
-                <option value="Grêmio">Grêmio</option>
-                <option value="Internacional">Internacional</option>
-                <option value="Botafogo">Botafogo</option>
-                <option value="Vasco da Gama">Vasco da Gama</option>
-                <option value="Cruzeiro">Cruzeiro</option>
-            </select>
+            <select id="time" name="time" class="form-control">
+        <option value="">selecione</option>
+        <%Times.forEach(function(time){%>
+          <option value='<%=time.id%>'> <%=time.nome%> </option>
+          <%})%>
+      </select>
 
             <label for="posicao"><i class="fas fa-map-marker-alt"></i> Posição:</label>
             <select id="posicao" name="posicao" required>

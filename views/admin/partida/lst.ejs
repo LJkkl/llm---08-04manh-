@@ -82,26 +82,18 @@
                 <th><i class="fas fa-calendar-alt"></i> Data da Partida</th>
                 <th><i class="fas fa-tools"></i> Ações</th>
             </tr>
+            <%Partidas.forEach(function(partida) { %>
             <tr>
-                <td>Gremio</td>
-                <td>7X0</td>
-                <td>São Paulo</td>
-                <td>12/12/2006</td>
+                <td><%= partida.timedecasa%></td>
+                <td><%= partida.resultado%></td>
+                <td><%= partida.timedefora%></td>
+                <td><%= partida.datapartida%></td>
                 <td>
-                    <a href="/admin/partida/edt/:id" class="btn edit"><i class="fas fa-edit"></i> Editar</a>
-                    <button class="delete-button" onclick="confirmarExclusao(':id')"><i class="fas fa-trash-alt"></i> Excluir</button>
+                    <a href="/admin/partida/edt/<%= partida.id %>" class="btn edit"><i class="fas fa-edit"></i> Editar</a>
+                    <button class="delete-button" onclick="confirmarExclusao('<%= partida.id %>')"><i class="fas fa-trash-alt"></i> Excluir</button>
                 </td>
             </tr>
-            <tr>
-                <td>Internacional</td>
-                <td>0X4</td>
-                <td>Palmeiras</td>
-                <td>12/09/2004</td>
-                <td>
-                    <a href="/admin/partida/edt/:id" class="btn edit"><i class="fas fa-edit"></i> Editar</a>
-                    <button class="delete-button" onclick="confirmarExclusao(':id')"><i class="fas fa-trash-alt"></i> Excluir</button>
-                </td>
-            </tr>
+            <% }) %>
         </table>
     </div>
 </body>

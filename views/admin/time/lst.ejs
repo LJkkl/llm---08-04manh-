@@ -133,12 +133,12 @@
                 <th><i class="fas fa-calendar-alt"></i> Data fundação</th>
                 <th><i class="fas fa-tools"></i> Ações</th>
             </tr>
-            <% Times.forEach(function(time) { %>
+            <%Times.forEach(function(time){ %>
                 <tr>
-                    <td><%= time.nome %></td>
-                    <td><%= time.estadio %></td>
-                    <td><%= time.classificacao %></td>
-                    <td><%= time.datafundacao %></td>
+                    <td><%=time.nome %></td>
+                    <td><%=time.estadio %></td>
+                    <td><%=time.classificacao %></td>
+                    <td><%=time.datafundacao %></td>
                     <td>
                         <a href="/admin/time/edt/<%= time.id %>" class="btn edit"><i class="fas fa-edit icon"></i> Editar</a>
                         <button class="delete-button" onclick="confirmarExclusao('<%= time.id %>')"><i class="fas fa-trash-alt icon"></i> Excluir</button>

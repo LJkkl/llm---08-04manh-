@@ -5,6 +5,6 @@ const Time = conexao.Schema({
     estadio:{type:String, required:true},
     classificacao:{type:Number, required:true},
     datafundacao:{type:String, required:true}
-})
+});
 
 export default conexao.model('Time',Time)

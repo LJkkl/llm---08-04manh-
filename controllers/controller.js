@@ -1,5 +1,6 @@
 import Time from '../models/time.js';
 import Jogador from '../models/jogador.js';
+import Partida from '../models/partida.js';
 export async function home(req, res) {
     res.render('admin/index')
 }
@@ -39,19 +40,25 @@ export async function edttime(req, res){
 
 
 export async function abreaddjogador(req, res) {
-    res.render('admin/jogador/add')
+    const resultado = await Time.find({}).catch(function(err){console.log(err)})
+    res.render('admin/jogador/add',{Times:resultado})
 }
 export async function addjogador(req, res) {
+    var jtime = null;
+    if(req.body.time!=null)
+    {
+        jtime = await Time.findById(req.body.time)
+    }
     await Jogador.create({
         nome:req.body.nome,
         camisa:req.body.camisa,
-        time:req.body.time,
+        time:jtime,
         posicao:req.body.posicao
     })
     res.redirect('/admin/jogador/add')
 }
 export async function listarjogador(req, res) {
-    const resultado = await Jogador.find({}).catch(function(err){console.log(err)});
+    const resultado = await Jogador.find({}).populate('time').catch(function(err){console.log(err)});
     res.render('admin/jogador/lst',{Jogados: resultado});
 }
 export async function filtrarjogador(req, res) {
@@ -65,7 +72,8 @@ export async function deletajogador(req, res) {
 }
 export async function abreedtjogador(req, res){
     const resultado = await Jogador.findById(req.params.id)
-    res.render('admin/jogador/edt',{Jogador: resultado})
+    const jtimes = await Time.find({}).catch(function(err){console.log(err)})
+    res.render('admin/jogador/edt',{Jogador: resultado,Times:jtimes})
 }
 export async function edtjogador(req, res){
     await Jogador.findByIdAndUpdate(req.params.id, req.body)
@@ -77,22 +85,36 @@ export async function abreaddpartida(req, res) {
     res.render('admin/partida/add')
 }
 export async function addpartida(req, res) {
+    await Partida.create({
+        timedecasa:req.body.timedecasa,
+        resultado:req.body.resultado,
+        timedefora:req.body.timedefora,
+        datapartida:req.body.datapartida,
+        golcasa:req.body.golcasa,
+        golfora:req.body.golfora
+    })
     res.redirect('/admin/partida/add')
 }
 export async function listarpartida(req, res) {
-    res.render('admin/partida/lst','')
+    const resultado = await Partida.find({}).catch(function(err){console.log(err)});
+    res.render('admin/partida/lst',{Partidas: resultado});
 }
 export async function filtrarpartida(req, res) {
-    res.render('admin/partida/lst','')
+    const resposta = await Partida.find({nome: new RegExp(req.body.pesquisar,"i")})
+    res.render('admin/partida/lst',{Partidas: resposta});
 }
 
 export async function deletapartida(req, res) {
-   res.redirect('/admin/partida/lst')
+    await Partida.findByIdAndDelete(req.params.id)
+    res.redirect('/admin/partida/lst')
 }
+
 export async function abreedtpartida(req, res){
-   
-    res.render('admin/partida/edt','')
+    const resultado = await Partida.findById(req.params.id)
+    res.render('admin/partida/edt',{Partida: resultado})
 }
+
 export async function edtpartida(req, res){
+    await Partida.findByIdAndUpdate(req.params.id, req.body)
     res.redirect('/admin/partida/lst')
 }

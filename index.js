@@ -9,7 +9,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 import mongoose from 'mongoose'
-const url = "mongodb+srv://aluno:aluno@cluster0.kgvfz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const url = "mongodb+srv://luan:luan@classi.au203n7.mongodb.net/classi?retryWrites=true&w=majority&appName=Classi"
 
 
 //converte o camimnho do arquivo atual
