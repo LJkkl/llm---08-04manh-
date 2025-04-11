@@ -84,9 +84,9 @@
             </tr>
             <%Partidas.forEach(function(partida) { %>
             <tr>
-                <td><%= partida.timedecasa%></td>
-                <td><%= partida.resultado%></td>
-                <td><%= partida.timedefora%></td>
+                <td><%= partida.timedecasa.nome%></td>
+                <td><%= partida.golcasa %> x <%= partida.golfora %></td>
+                <td><%= partida.timedefora.nome%></td>
                 <td><%= partida.datapartida%></td>
                 <td>
                     <a href="/admin/partida/edt/<%= partida.id %>" class="btn edit"><i class="fas fa-edit"></i> Editar</a>

@@ -66,4 +66,6 @@ router.get('/admin/partida/del/:id', deletapartida)
 //rota do modelo partida (editar)
 router.get('/admin/partida/edt/:id', abreedtpartida)
 router.post('/admin/partida/edt/:id', edtpartida)
+
+    
 export default router

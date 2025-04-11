@@ -9,36 +9,22 @@
 <body>
   <form action="" method="post">
     <h1><i class="fas fa-users"></i> Mais partidas</h1>
-    <label for="timedecasa"><i class="fas fa-tshirt"></i> Time da Casa</label>
-    <select id="timedecasa" name="timedecasa" required>
-      <option value="">Selecione um time</option>
-      <option value="Flamengo">Flamengo</option>
-      <option value="Palmeiras">Palmeiras</option>
-      <option value="São Paulo">São Paulo</option>
-      <option value="Atlético Mineiro">Atlético Mineiro</option>
-      <option value="Corinthians">Corinthians</option>
-      <option value="Grêmio">Grêmio</option>
-      <option value="Internacional">Internacional</option>
-      <option value="Botafogo">Botafogo</option>
-      <option value="Vasco da Gama">Vasco da Gama</option>
-      <option value="Cruzeiro">Cruzeiro</option>
-  </select>
+    <label for="timecasa"><i class="fas fa-tshirt"></i> Time da Casa</label>
+    <select id="timecasa" name="timecasa" required>
+      <option value="">selecione</option>
+      <%Times.forEach(function(time){%>
+        <option value='<%=time.id%>'> <%=time.nome%> </option>
+      <%})%>
+    </select>
 
     
-    <label for="timedefora"><i class="fas fa-tshirt"></i> Time de Fora</label>
-    <select id="timedefora" name="timedefora" required>
-      <option value="">Selecione um time</option>
-      <option value="Flamengo">Flamengo</option>
-      <option value="Palmeiras">Palmeiras</option>
-      <option value="São Paulo">São Paulo</option>
-      <option value="Atlético Mineiro">Atlético Mineiro</option>
-      <option value="Corinthians">Corinthians</option>
-      <option value="Grêmio">Grêmio</option>
-      <option value="Internacional">Internacional</option>
-      <option value="Botafogo">Botafogo</option>
-      <option value="Vasco da Gama">Vasco da Gama</option>
-      <option value="Cruzeiro">Cruzeiro</option>
-  </select>
+    <label for="timefora"><i class="fas fa-tshirt"></i> Time de Fora</label>
+    <select id="timefora" name="timefora" required>
+      <option value="">selecione</option>
+      <%Times.forEach(function(time){%>
+        <option value='<%=time.id%>'> <%=time.nome%> </option>
+      <%})%>
+    </select>
 
     <label for="golcasa"><i class="fas fa-landmark"></i> Gol Casa</label>
     <input min="0" max ="99" type="number" id="golcasa" name="golcasa" placeholder="Digite o Gol Casa">

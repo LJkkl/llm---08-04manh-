@@ -82,21 +82,28 @@ export async function edtjogador(req, res){
 
 
 export async function abreaddpartida(req, res) {
-    res.render('admin/partida/add')
+    const resultado = await Time.find({}).catch(function(err){console.log(err)})
+    res.render('admin/partida/add',{Times:resultado})
 }
 export async function addpartida(req, res) {
+    const timeCasa = await Time.findById(req.body.timecasa);
+    const timeFora = await Time.findById(req.body.timefora);
+
     await Partida.create({
-        timedecasa:req.body.timedecasa,
-        resultado:req.body.resultado,
-        timedefora:req.body.timedefora,
-        datapartida:req.body.datapartida,
-        golcasa:req.body.golcasa,
-        golfora:req.body.golfora
+        timedecasa: timeCasa,
+        timedefora: timeFora,
+        golcasa: req.body.golcasa,
+        golfora: req.body.golfora,
+        datapartida: req.body.datapartida
     })
-    res.redirect('/admin/partida/add')
+
+    res.redirect('/admin/partida/add');
 }
 export async function listarpartida(req, res) {
-    const resultado = await Partida.find({}).catch(function(err){console.log(err)});
+    const resultado = await Partida.find({})
+    .populate('timedecasa')
+    .populate('timedefora')
+    .catch(function(err){console.log(err)});
     res.render('admin/partida/lst',{Partidas: resultado});
 }
 export async function filtrarpartida(req, res) {
@@ -111,7 +118,8 @@ export async function deletapartida(req, res) {
 
 export async function abreedtpartida(req, res){
     const resultado = await Partida.findById(req.params.id)
-    res.render('admin/partida/edt',{Partida: resultado})
+    const jtimes = await Time.find({}).catch(function(err){console.log(err)})
+    res.render('admin/partida/edt',{Partida: resultado,Times:jtimes})
 }
 
 export async function edtpartida(req, res){
